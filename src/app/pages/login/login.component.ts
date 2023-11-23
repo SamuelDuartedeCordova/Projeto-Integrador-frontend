@@ -1,19 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
-})
-export class LoginComponent {
-
-}
-import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { LoginService } from ';
+
 
 @Component({
   selector: 'app-login',
@@ -23,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private loginService: LoginService) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -32,7 +20,7 @@ export class LoginComponent {
 
   onSubmit() {
     const { username, password } = this.loginForm.value;
-    this.authService.login(username, password);
+    this.loginService.login(username, password);
   }
 }
 
