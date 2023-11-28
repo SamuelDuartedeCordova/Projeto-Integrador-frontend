@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Cadastro } from './models/cadastro';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -21,7 +21,7 @@ export class AppComponent {
   addCadastro(formulario: NgForm) {
 
     if (formulario.valid) {
-      let produto: Cadastro = formulario.value;
+      let cadastro: Cadastro = formulario.value;
 
       if (cadastro.codigo > 0) {
         this.excluir(cadastro);
