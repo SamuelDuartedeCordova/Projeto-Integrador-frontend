@@ -1,7 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, Output, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-cadastro',
@@ -48,4 +48,11 @@ export class CadastroComponent {
 
   }
 
+  @Input() colunas: string[] = [];
+  @Input() dados: any[] = [];
+  @Output() onExcluir = new EventEmitter();
+  @Output() onEditar = new EventEmitter();
+
 }
+
+
