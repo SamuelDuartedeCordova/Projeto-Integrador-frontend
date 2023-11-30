@@ -1,0 +1,8 @@
+@each $color, $value in $colors {
+  .button-#{$color} {
+    background-color: $value;
+    border-radius: 20px;
+    min-width: 240px;
+    min-height: 60px;
+  }
+}
