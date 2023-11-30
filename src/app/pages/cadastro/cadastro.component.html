@@ -1,1 +1,33 @@
-<p>cadastro works!</p>
+
+<div class="conteudo">
+
+    <h1>Criar Conta</h1>
+        <form #formulario='ngForm' (Submit)="addCadastro(formulario)" style="margin-bottom: 15px;">
+            <input type="hidden" name="codigo" ngModel>
+
+            <div class="input group">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" ngModel required>
+            </div>
+
+            <div class="input group">
+                <label for="nome">Sobrenome</label>
+                <input type="text" name="sobrenome" id="sobrenome" ngModel required>
+            </div>
+
+            <div class="input group">
+                <label for="nome">Email</label>
+                <input type="text" name="email" id="email" ngModel required>
+            </div>
+
+            <div class="input group">
+                <label for="nome">Senha</label>
+                <input type="string" name="senha" id="senha" ngModel required>
+            </div>
+
+            <div class="btn-group">
+                <input class="btn" type="text" value="CRIAR CONTA">
+            </div>
+            
+        </form>
+</div>
