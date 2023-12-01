@@ -1,29 +1,31 @@
 <img src="assets/images/logo.png"/>
 <div class="flex-column align-center justify-center">
-  <div class="w-50 bg-primary border-rounded align-center">
-    <div class="flex-column align-center p-24 gap-24">
-      <div>
-        <h1 class="text-white pb-72">Login</h1>
+  <div class="login-card w-50 flex bg-primary border-rounded justify-center align-center pt-80 pb-128">
+    <form [formGroup]="loginForm" class="login-form w-30 flex-column justify-center align-center">
+      <h1 class="text-white pb-72">Login</h1>
 
-        <div class="flex-column gap-48">
-          <div class="flex-column gap-8">
-            <p class="text-white">Email</p>
-            <input type="text" class="form-control">
+      <div class="flex-column gap-48 mb-24 w-full">
+        <div class="flex-column gap-8">
+          <p class="text-white">Email</p>
+          <div class="form-input-wrap">
+            <input formControlName="email" type="email" class="form-control">
           </div>
+          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('email')?.errors"/>
+        </div>
 
-          <div class="flex-column gap-8">
-            <p class="text-white">Senha</p>
-            <input type="password" class="form-control">
-          </div>
+        <div class="flex-column gap-8">
+          <p class="text-white">Senha</p>
+          <app-input-senha [control]="senhaFormControl"></app-input-senha>
+          <app-form-error [errors]="loginForm.get('senha')?.errors"/>
         </div>
       </div>
 
-      <div class="flex-column gap-8">
-        <p class="text-white">Esqueci minha senha</p>
-        <button class="button-secondary">
+      <div class="flex-column gap-8 align-center">
+        <p class="text-white text-underline cursor-pointer">Esqueci minha senha</p>
+        <button class="button-secondary" (click)="login()">
           Acessar conta
         </button>
       </div>
-    </div>
+    </form>
   </div>
 </div>

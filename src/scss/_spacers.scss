@@ -1,11 +1,71 @@
-.w-50 {
- width: 50%;
+@each $number in $sequence {
+
+  // MARGINS
+  .m-#{$number} {
+    margin: #{$number}#{"px"};
+  }
+
+  .mt-#{$number} {
+    margin-top: #{$number}#{"px"};
+  }
+
+  .mb-#{$number} {
+    margin-bottom: #{$number}#{"px"};
+  }
+
+  .mr-#{$number} {
+    margin-right: #{$number}#{"px"};
+  }
+
+  .ml-#{$number} {
+    margin-left: #{$number}#{"px"};
+  }
+
+  // PADDINGS
+  .p-#{$number} {
+    padding: #{$number}#{"px"};
+  }
+
+  .pt-#{$number} {
+    padding-top: #{$number}#{"px"};
+  }
+
+  .pb-#{$number} {
+    padding-bottom: #{$number}#{"px"};
+  }
+
+  .pr-#{$number} {
+    padding-right: #{$number}#{"px"};
+  }
+
+  .pl-#{$number} {
+    padding-left: #{$number}#{"px"};
+  }
+
+
+  // WIDTH
+  .w-#{$number} {
+    width: #{$number}#{"%"};
+  }
+
+  // HEIGHT
+  .h-#{$number} {
+    height: #{$number}#{"%"};
+  }
 }
 
-.p-24 {
-  padding: 24px;
+.w-fit {
+  width: fit-content;
 }
 
-.pb-72 {
-  padding-bottom: 72px;
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-min-700 {
+  min-height: 700px;
 }

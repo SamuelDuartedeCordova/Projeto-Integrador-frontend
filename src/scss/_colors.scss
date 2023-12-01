@@ -1,9 +1,9 @@
 @each $color, $value in $colors {
-  .bg-#{$color} {
+  .bg-#{"" + $color} {
     background-color: $value;
   }
 
-  .text-#{$color} {
+  .text-#{"" + $color} {
     color: $value;
   }
 }
