@@ -31,5 +31,6 @@ export class RegisterPageComponent implements OnInit {
 
   criarConta(): void {
     this.loginForm.markAllAsTouched();
+    
   }
 }
