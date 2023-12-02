@@ -1,5 +1,13 @@
+$sequence: 2, 4, 8, 16, 20, 24, 30, 32, 40, 48, 50, 64, 72, 80, 90, 100, 128;
 $primary: #034AA6;
+$primary-80: #356EB8;
+$primary-30: #C2D4EA;
 $secondary: #EBFF00;
+$secondary-80: #EFFF33;
+$secondary-30: #F9FFB3;
+$red: #dc3545;
+$green: #13795b;
+$yellow: #ffc107;
 $charcoal: #36454F;
 $white: #FFFFFF;
 $gray: #808080;
@@ -11,4 +19,7 @@ $colors: (
   lightGray: $light-gray,
   primary: $primary,
   secondary: $secondary,
+  red: $red,
+  green: $green,
+  yellow: $green,
 );

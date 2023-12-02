@@ -4,19 +4,21 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {FormErrorComponent} from "../../shared/form-error/form-error.component";
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-register-page',
   standalone: true,
   imports: [
     InputSenhaComponent,
     ReactiveFormsModule,
     FormErrorComponent,
   ],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.scss'
+  templateUrl: './register-page.component.html',
+  styleUrl: './register-page.component.scss'
 })
-export class LoginPageComponent implements OnInit {
+export class RegisterPageComponent implements OnInit {
 
   loginForm = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    sobrenome: new FormControl('', [Validators.required]),
     email: new FormControl('',  [Validators.required, Validators.email]),
     senha: new FormControl('', [Validators.required]),
   });
@@ -27,7 +29,7 @@ export class LoginPageComponent implements OnInit {
     this.senhaFormControl = this.loginForm.get('senha') as FormControl;
   }
 
-  login(): void {
+  criarConta(): void {
     this.loginForm.markAllAsTouched();
   }
 }
