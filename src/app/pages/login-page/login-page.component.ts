@@ -28,9 +28,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   login(): void {
-
     this.loginForm.markAllAsTouched();
-    this.loginForm.updateValueAndValidity();
-
   }
 }
