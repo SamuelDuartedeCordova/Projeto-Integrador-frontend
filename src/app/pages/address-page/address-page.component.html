@@ -1,1 +1,66 @@
-<p>address-page works!</p>
+<img src="assets/images/logo.png"/>
+<div class="flex-column align-center justify-center">
+  <div class="login-card w-50 flex bg-primary border-rounded justify-center align-center pt-80 pb-128">
+    <form [formGroup]="loginForm" class="login-form w-30 flex-column justify-center align-center">
+      <h1 class="text-white pb-72">Cadastrar</h1>
+
+      <div class="flex-column gap-48 mb-24 w-full">
+
+        <div class="flex-column gap-8">
+            <p class="text-white">Rua</p>
+            <div class="form-input-wrap">
+              <input formControlName="rua" type="rua" class="form-control">
+            </div>
+            <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('rua')?.errors"/>
+          </div>
+
+          <div class="flex-column gap-8">
+            <p class="text-white">Numero</p>
+            <div class="form-input-wrap">
+              <input formControlName="numero" type="numero" class="form-control">
+            </div>
+            <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('numero')?.errors"/>
+          </div>
+  
+          <div class="flex-column gap-8">
+            <p class="text-white">Complemento</p>
+            <div class="form-input-wrap">
+              <input formControlName="complemento" type="complemento" class="form-control">
+            </div>
+            <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('complemento')?.errors"/>
+          </div>
+  
+          <div class="flex-column gap-8">
+            <p class="text-white">Bairro</p>
+            <div class="form-input-wrap">
+              <input formControlName="bairro" type="bairro" class="form-control">
+            </div>
+            <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('bairro')?.errors"/>
+          </div>          
+
+          <div class="flex-column gap-8">
+            <p class="text-white">Cidade</p>
+            <div class="form-input-wrap">
+              <input formControlName="cidade" type="cidade" class="form-control">
+            </div>
+            <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('cidade')?.errors"/>
+          </div>
+
+          <div class="flex-column gap-8">
+            <p class="text-white">Estado</p>
+            <div class="form-input-wrap">
+              <input formControlName="estado" type="estado" class="form-control">
+            </div>
+            <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('estado')?.errors"/>
+          </div>
+
+      </div>
+
+      <div class="flex-column gap-8 align-center">
+        <button class="button-secondary" (click)="cadastrar()">
+          Cadastrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
