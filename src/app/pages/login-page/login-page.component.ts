@@ -6,6 +6,10 @@ import {Router, RouterModule} from "@angular/router";
 import {AppLogoComponent} from "../../shared/components/app-logo/app-logo.component";
 import {NavbarComponent} from "../../shared/components/navbar/navbar.component";
 import {LoginDividerComponent} from "./components/login-divider/login-divider.component";
+import {UsuarioService} from "../../shared/services/usuario.service";
+import {finalize} from "rxjs";
+import {NgIf} from "@angular/common";
+import {SpinnerIconComponent} from "../../shared/components/spinner-icon/spinner-icon.component";
 
 @Component({
   selector: 'app-login-page',
@@ -17,14 +21,18 @@ import {LoginDividerComponent} from "./components/login-divider/login-divider.co
     RouterModule,
     AppLogoComponent,
     NavbarComponent,
-    LoginDividerComponent
+    LoginDividerComponent,
+    NgIf,
+    SpinnerIconComponent
   ],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router: Router) {
+  processando: boolean = false;
+
+  constructor(private router: Router, private usuarioService: UsuarioService) {
   }
 
   loginForm = new FormGroup({
@@ -46,9 +54,18 @@ export class LoginPageComponent implements OnInit {
     this.loginForm.markAllAsTouched();
     this.loginForm.updateValueAndValidity();
 
-
     if (this.loginForm.valid) {
-      this.router.navigate(['home']);
+      this.processando = true;
+      this.usuarioService.login(
+        this.loginForm.get('email')?.value as string,
+        this.loginForm.get('senha')?.value as string
+      )
+        .pipe(
+          finalize(() => this.processando = false)
+        )
+        .subscribe(response => {
+          this.router.navigate(['home']);
+        })
     }
   }
 

@@ -22,7 +22,10 @@
     <div class="flex-column gap-24">
       <p class="text-charcoal text-underline cursor-pointer">Esqueci minha senha</p>
       <button [disabled]="loginForm.invalid" class="button-secondary block" (click)="login()">
-        Acessar conta
+        <span *ngIf="processando; else mostrarLabel">
+        <app-spinner-icon></app-spinner-icon>
+      </span>
+        <ng-template #mostrarLabel>Acessar conta</ng-template>
       </button>
     </div>
   </form>
