@@ -12,6 +12,10 @@
   flex-direction: column;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -30,6 +34,10 @@
 
 .gap-24 {
   gap: 24px;
+}
+
+.gap-32 {
+  gap: 32px
 }
 
 .gap-48 {

@@ -1,0 +1,20 @@
+<div class="flex-column">
+  <div class="flex-column mb-8">
+    <img [src]="produto.foto">
+    <div class="flex-row bg-purple align-center justify-center">
+      <span class="text-white text-medium">- {{produto.percentualDesconto}} % Off</span>
+    </div>
+  </div>
+  <div class="text-charcoal mb-24">
+    {{produto.nome}}
+  </div>
+  <div class="flex-row gap-8 mb-16">
+    <div *ngFor="let estrela of estrelas">
+      <i class="text-yellow fa fa-star"></i>
+    </div>
+  </div>
+  <div class="flex-column gap-8">
+    <div>R$ {{produto.preco}}</div>
+    <div class="text-bold text-large">R$ {{produto.precoDesconto}}</div>
+  </div>
+</div>
