@@ -1,0 +1,7 @@
+<div class="form-input-wrap">
+  <input [formControl]="control" type="{{ mostrarSenha ? 'text' : 'password' }}" class="form-control">
+  <i
+    [class.fa-eye-slash]="!mostrarSenha"
+    [class.fa-eye]="mostrarSenha"
+    class="fa cursor-pointer" (click)="alterarEstadoVisibilidade()"></i>
+</div>

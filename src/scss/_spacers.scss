@@ -1,0 +1,71 @@
+@each $number in $sequence {
+
+  // MARGINS
+  .m-#{$number} {
+    margin: #{$number}#{"px"};
+  }
+
+  .mt-#{$number} {
+    margin-top: #{$number}#{"px"};
+  }
+
+  .mb-#{$number} {
+    margin-bottom: #{$number}#{"px"};
+  }
+
+  .mr-#{$number} {
+    margin-right: #{$number}#{"px"};
+  }
+
+  .ml-#{$number} {
+    margin-left: #{$number}#{"px"};
+  }
+
+  // PADDINGS
+  .p-#{$number} {
+    padding: #{$number}#{"px"};
+  }
+
+  .pt-#{$number} {
+    padding-top: #{$number}#{"px"};
+  }
+
+  .pb-#{$number} {
+    padding-bottom: #{$number}#{"px"};
+  }
+
+  .pr-#{$number} {
+    padding-right: #{$number}#{"px"};
+  }
+
+  .pl-#{$number} {
+    padding-left: #{$number}#{"px"};
+  }
+
+
+  // WIDTH
+  .w-#{$number} {
+    width: #{$number}#{"%"};
+  }
+
+  // HEIGHT
+  .h-#{$number} {
+    height: #{$number}#{"%"};
+  }
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-min-700 {
+  min-height: 700px;
+}
