@@ -4,6 +4,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {FormErrorComponent} from "../../shared/components/form-error/form-error.component";
 import {AppLogoComponent} from "../../shared/components/app-logo/app-logo.component";
 import {ActivatedRoute} from "@angular/router";
+import {NavbarComponent} from "../../shared/components/navbar/navbar.component";
 
 @Component({
   selector: 'app-register-page',
@@ -13,6 +14,7 @@ import {ActivatedRoute} from "@angular/router";
     ReactiveFormsModule,
     FormErrorComponent,
     AppLogoComponent,
+    NavbarComponent,
   ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss'
@@ -32,8 +34,10 @@ export class RegisterPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      this.registroForm.get('email')?.setValue(params['email']);
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['email']) {
+        this.registroForm.get('email')?.setValue(params['email']);
+      }
     });
 
     this.senhaFormControl = this.registroForm.get('senha') as FormControl;

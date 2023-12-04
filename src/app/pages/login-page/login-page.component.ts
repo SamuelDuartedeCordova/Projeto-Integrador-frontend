@@ -28,12 +28,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginForm = new FormGroup({
-    email: new FormControl('',  [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     senha: new FormControl('', [Validators.required]),
   });
 
   criarContaForm = new FormGroup({
-    email: new FormControl('',  [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required, Validators.email]),
   });
 
   senhaFormControl: FormControl = undefined as any;
@@ -54,7 +54,11 @@ export class LoginPageComponent implements OnInit {
 
   criarConta(): void {
     if (this.criarContaForm.valid) {
-      this.router.navigate(['register', this.criarContaForm.get('email')?.value]);
+      this.router.navigate(['register'], {
+        queryParams: {
+          email: this.criarContaForm.get('email')?.value
+        }
+      });
     }
   }
 }
