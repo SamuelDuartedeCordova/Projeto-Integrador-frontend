@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {InputSenhaComponent} from "../../shared/input-senha/input-senha.component";
+import {InputSenhaComponent} from "../../shared/components/input-senha/input-senha.component";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {FormErrorComponent} from "../../shared/form-error/form-error.component";
+import {FormErrorComponent} from "../../shared/components/form-error/form-error.component";
+import {AppLogoComponent} from "../../shared/components/app-logo/app-logo.component";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-register-page',
@@ -10,13 +12,14 @@ import {FormErrorComponent} from "../../shared/form-error/form-error.component";
     InputSenhaComponent,
     ReactiveFormsModule,
     FormErrorComponent,
+    AppLogoComponent,
   ],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss'
 })
 export class RegisterPageComponent implements OnInit {
 
-  loginForm = new FormGroup({
+  registroForm = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     sobrenome: new FormControl('', [Validators.required]),
     email: new FormControl('',  [Validators.required, Validators.email]),
@@ -25,12 +28,19 @@ export class RegisterPageComponent implements OnInit {
 
   senhaFormControl: FormControl = undefined as any;
 
+  constructor(private activatedRoute: ActivatedRoute) {
+  }
+
   ngOnInit() {
-    this.senhaFormControl = this.loginForm.get('senha') as FormControl;
+    this.activatedRoute.params.subscribe(params => {
+      this.registroForm.get('email')?.setValue(params['email']);
+    });
+
+    this.senhaFormControl = this.registroForm.get('senha') as FormControl;
   }
 
   criarConta(): void {
-    this.loginForm.markAllAsTouched();
-    
+    this.registroForm.markAllAsTouched();
+
   }
 }

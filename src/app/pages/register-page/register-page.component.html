@@ -1,7 +1,7 @@
-<img src="assets/images/logo.png"/>
+<app-app-logo></app-app-logo>
 <div class="flex-column align-center justify-center">
   <div class="login-card w-50 flex bg-primary border-rounded justify-center align-center pt-80 pb-128">
-    <form [formGroup]="loginForm" class="login-form w-30 flex-column justify-center align-center">
+    <form [formGroup]="registroForm" class="login-form w-30 flex-column justify-center align-center">
       <h1 class="text-white pb-72">Criar conta</h1>
 
       <div class="flex-column gap-48 mb-24 w-full">
@@ -11,7 +11,7 @@
           <div class="form-input-wrap">
             <input formControlName="nome" type="nome" class="form-control">
           </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('nome')?.errors"/>
+          <app-form-error [deveMostrar]="registroForm.touched" [errors]="registroForm.get('nome')?.errors"/>
         </div>
 
         <div class="flex-column gap-8">
@@ -19,23 +19,23 @@
           <div class="form-input-wrap">
             <input formControlName="sobrenome" type="sobrenome" class="form-control">
           </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('sobrenome')?.errors"/>
+          <app-form-error [deveMostrar]="registroForm.touched" [errors]="registroForm.get('sobrenome')?.errors"/>
         </div>
 
-        
+
 
         <div class="flex-column gap-8">
           <p class="text-white">Email</p>
           <div class="form-input-wrap">
             <input formControlName="email" type="email" class="form-control">
           </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('email')?.errors"/>
+          <app-form-error [deveMostrar]="registroForm.touched" [errors]="registroForm.get('email')?.errors"/>
         </div>
 
         <div class="flex-column gap-8">
           <p class="text-white">Senha</p>
           <app-input-senha [control]="senhaFormControl"></app-input-senha>
-          <app-form-error [errors]="loginForm.get('senha')?.errors"/>
+          <app-form-error [errors]="registroForm.get('senha')?.errors"/>
         </div>
       </div>
 
