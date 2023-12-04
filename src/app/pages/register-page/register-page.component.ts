@@ -2,26 +2,23 @@ import {Component, OnInit} from '@angular/core';
 import {InputSenhaComponent} from "../../shared/input-senha/input-senha.component";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FormErrorComponent} from "../../shared/form-error/form-error.component";
-import {Router, RouterModule} from "@angular/router";
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-register-page',
   standalone: true,
   imports: [
     InputSenhaComponent,
     ReactiveFormsModule,
     FormErrorComponent,
-    RouterModule
   ],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.scss'
+  templateUrl: './register-page.component.html',
+  styleUrl: './register-page.component.scss'
 })
-export class LoginPageComponent implements OnInit {
-
-  constructor(private router: Router) {
-  }
+export class RegisterPageComponent implements OnInit {
 
   loginForm = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    sobrenome: new FormControl('', [Validators.required]),
     email: new FormControl('',  [Validators.required, Validators.email]),
     senha: new FormControl('', [Validators.required]),
   });
@@ -32,13 +29,8 @@ export class LoginPageComponent implements OnInit {
     this.senhaFormControl = this.loginForm.get('senha') as FormControl;
   }
 
-  login(): void {
+  criarConta(): void {
     this.loginForm.markAllAsTouched();
-    this.loginForm.updateValueAndValidity();
-
-
-    if (this.loginForm.valid) {
-      this.router.navigate(['home']);
-    }
+    
   }
 }
