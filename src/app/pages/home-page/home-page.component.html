@@ -1,5 +1,5 @@
-<img src="assets/images/logo.png"/>
-  <div class="bg-primary">
+
+  <div>
     <header>
       <div class="breakpoint main-bar">
         <section class="logo">
@@ -18,10 +18,44 @@
                 <i class="ns-icon-user-ico"></i>
                 Entrar
               </a>
-              <ul class="right"><li><a href="/auth/login">Login</a></li><li><a href="/account/my-orders">Meus pedidos</a></li><li><a rel="nofollow" href="/account/my-addresses">Endereços</a></li></ul></div><div id="header-user-logged" class="ns-icon ns-icon-user user logged"><a href="#header-user-logged" rel="nofollow" class="ns-icon ns-icon-arrow-down prv-action ns-void-link" qa-automation="home-account-button"><i class="ns-icon-user-ico"></i>Olá, <span id="username-logged"></span></a><ul class="right"><li><a rel="nofollow" href="/account">Minha conta</a></li><li><a rel="nofollow" href="/account/my-orders">Meus pedidos</a></li><li><a rel="nofollow" href="/account/my-addresses">Endereços</a></li><li class="pc-user-status hide"><a rel="nofollow" href="/new-account/preferences-center" class="preferences-center--link">Central de preferências<span class="preferences-center--link__tooltip hide">Agora você pode salvar suas preferências na Central e personalizar sua navegação!</span></a></li><li><a rel="nofollow" href="/auth/logout">Sair</a></li></ul></div></div>
+              <ul class="right">
+                <li>
+                  <a href="../login-page/login-page.component.html">Login</a>
+                </li>
+                <li>
+                  <a href="../register-page/register-page.component.html">Criar conta</a>
+                </li>
+                <li>
+                  <a rel="nofollow" href="../address-page/address-page.component.html">Endereços</a>
+                </li>
+              </ul>
+            </div>
+            <div id="header-user-logged" class="ns-icon ns-icon-user user logged">
+              <a href="#header-user-logged" rel="nofollow" class="ns-icon ns-icon-arrow-down prv-action ns-void-link" qa-automation="home-account-button">
+                <i class="ns-icon-user-ico"></i>
+                Olá,
+                <span id="username-logged"></span>
+              </a>
+              <ul class="right">
+                <li>
+                  <a rel="nofollow" href="/account">Meu carrinho</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
-        <section></section>
-        <section></section>
+        <section class="count" data-mini-cart-wrapper="">
+          <a href="/cart" class="mini-cart ns-icon ns-icon-cart" qa-automation="home-cart-button" accesskey="c">
+            <span class="cart-count-badge">
+              <span>0</span>
+            </span>
+          </a>
+          <div class="minicart-sub-menu minicart-quickview-on">
+            <div class="minicart-sub-menu-wrapper">
+              <p class="empty-mini-cart">Seu carrinho está vazio</p>
+            </div>
+          </div>
+        </section>
       </div>
   </header>
   </div>
