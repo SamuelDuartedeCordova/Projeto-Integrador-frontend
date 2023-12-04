@@ -1,10 +1,9 @@
 <app-navbar></app-navbar>
 <div class="flex-column align-center justify-center pb-24">
-  <form [formGroup]="registroForm" class="login-form w-30 flex-column justify-center align-center">
+  <form [formGroup]="registroForm" class="login-form w-30 flex-column">
     <h2 class="text-primary pb-48">Criar conta</h2>
 
-    <div class="flex-column gap-48 mb-24 w-full">
-
+    <div class="flex-column gap-24 w-full">
       <div class="flex-column gap-8">
         <p class="text-charcoal">Nome</p>
         <div class="form-input-wrap">
@@ -38,7 +37,10 @@
     </div>
 
     <button class="button-secondary block mt-8" (click)="criarConta()">
-      Criar conta
+      <span *ngIf="processando; else mostrarLabel">
+        <app-spinner-icon></app-spinner-icon>
+      </span>
+      <ng-template #mostrarLabel>Criar conta</ng-template>
     </button>
   </form>
 </div>
