@@ -47,4 +47,8 @@ export class NavbarComponent implements OnInit {
   onSearchValueChanged(value: string): void {
     this.filtroProdutoService.filtroProduto$.next(value);
   }
+
+  redirecionarParaCarrinho(): void {
+    this.router.navigate(['cart']);
+  }
 }

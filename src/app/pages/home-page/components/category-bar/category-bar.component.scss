@@ -3,3 +3,12 @@
   position: absolute;
   top: 92px;
 }
+
+.dropdown-content {
+  left: 32px;
+  top: 130px;
+
+  > span:hover {
+    background-color: #FFCD39;
+  }
+}
