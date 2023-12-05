@@ -1,6 +1,6 @@
-<div class="flex-column grow">
-  <div class="flex-column mb-8">
-    <img [src]="produto.foto">
+<div class="flex-column p-16 shadow">
+  <div class="flex-column mb-8 photo-wrap">
+    <img class="product-photo" [src]="produto.foto"/>
     <div class="flex-row bg-purple align-center justify-center">
       <span class="text-white text-medium">- {{produto.percentualDesconto}} % Off</span>
     </div>
@@ -13,8 +13,8 @@
       <i class="text-yellow fa fa-star"></i>
     </div>
   </div>
-  <div class="flex-column gap-8">
-    <div>R$ {{produto.preco}}</div>
+  <div class="flex-column">
+    <div class="text-cut text-gray">R$ {{produto.preco}}</div>
     <div class="text-bold text-large">R$ {{produto.precoDesconto}}</div>
   </div>
 </div>

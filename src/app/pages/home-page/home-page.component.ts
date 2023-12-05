@@ -16,12 +16,12 @@ export class HomePageComponent {
   searchTerm: string = ''; // Use ngModel ou [(ngModel)] no modelo para vincular a essa propriedade
   produtos: Produto[] = [
     {
-      foto: '/assets/images/bola_1.png',
-      nome: 'Bola de Futebol de Campo Penalty Bravo',
-      nota: 1,
+      foto: '/assets/images/bola_1.webp',
+      nome: 'Bola de Futebol Campo Adidas UEFA Champions League - Branco+Roxo\n',
+      nota: 4,
       percentualDesconto: 30,
-      preco: 119.90,
-      precoDesconto: 83.93
+      preco: 259.90,
+      precoDesconto: 222.21
     },
     {
       foto: '/assets/images/cone_com_furo_1.png',
@@ -32,12 +32,20 @@ export class HomePageComponent {
       precoDesconto: 79.99
     },
     {
-      foto: '/assets/images/rede_1.png',
+      foto: '/assets/images/rede_1.webp',
       nome: 'Rede de Futebol Campo Master Fio 4mm Nylon Sem Nó',
-      nota: 1,
+      nota: 4,
       percentualDesconto: 30,
       preco: 459.90,
       precoDesconto: 321.30
+    },
+    {
+      foto: '/assets/images/whey_1.webp',
+      nome: 'Rede de Futebol Campo Master Fio 4mm Nylon Sem Nó',
+      nota: 3,
+      percentualDesconto: 30,
+      preco: 89.90,
+      precoDesconto: 59.90
     },
   ];
 
