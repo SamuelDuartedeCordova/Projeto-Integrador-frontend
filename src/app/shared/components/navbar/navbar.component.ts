@@ -2,10 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {AppLogoComponent} from "../app-logo/app-logo.component";
 import {UsuarioService} from "../../services/usuario.service";
 import {NgIf} from "@angular/common";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
+import {Router} from "@angular/router";
 import {SearchInputComponent} from "../search-input/search-input.component";
 import {LoginDropdownComponent} from "./components/login-dropdown/login-dropdown.component";
+import {UsuarioDropdownComponent} from "./components/usuario-dropdown/usuario-dropdown.component";
+import Usuario from "../../models/usuario.model";
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,8 @@ import {LoginDropdownComponent} from "./components/login-dropdown/login-dropdown
     AppLogoComponent,
     NgIf,
     SearchInputComponent,
-    LoginDropdownComponent
+    LoginDropdownComponent,
+    UsuarioDropdownComponent
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
@@ -22,7 +24,7 @@ import {LoginDropdownComponent} from "./components/login-dropdown/login-dropdown
 export class NavbarComponent implements OnInit {
 
   temUsuarioLogado: boolean = false;
-  nomeUsuario: string = '';
+  usuario: Usuario | null = null;
   deveMostrarSomenteLogo: boolean = true;
 
   constructor(private usuarioService: UsuarioService, private router: Router) {
@@ -36,7 +38,7 @@ export class NavbarComponent implements OnInit {
       .subscribe(dadosUsuarioLogado => {
         this.temUsuarioLogado = !!dadosUsuarioLogado;
         if (dadosUsuarioLogado) {
-          this.nomeUsuario = dadosUsuarioLogado.nome;
+          this.usuario = dadosUsuarioLogado;
         }
       });
   }

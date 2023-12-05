@@ -6,8 +6,8 @@
 
   <div *ngIf="!deveMostrarSomenteLogo" class="flex-row mr-24">
     <div class="flex-row gap-24 align-center">
-      <div *ngIf="temUsuarioLogado" class="text-white">Olá, {{nomeUsuario}}</div>
       <app-login-dropdown *ngIf="!temUsuarioLogado"></app-login-dropdown>
+      <app-usuario-dropdown *ngIf="temUsuarioLogado" [usuario]="usuario"></app-usuario-dropdown>
       <div class="cursor-pointer p-8 text-white text-large">
         <i class="fa fa-shopping-cart"></i>
       </div>

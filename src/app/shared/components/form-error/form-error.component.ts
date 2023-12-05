@@ -21,7 +21,6 @@ export class FormErrorComponent implements OnInit {
   set errors(errors: ValidationErrors | null | undefined) {
     if (errors) {
       this.errors$.next(errors);
-      console.log(errors);
     } else {
       this.validationError = null;
     }

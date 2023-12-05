@@ -13,7 +13,6 @@ import {ProdutoCardItemComponent} from "./components/produto-card-item/produto-c
   imports: [NavbarComponent, CategoryBarComponent, NgForOf, ProdutoCardItemComponent]
 })
 export class HomePageComponent {
-  searchTerm: string = ''; // Use ngModel ou [(ngModel)] no modelo para vincular a essa propriedade
   produtos: Produto[] = [
     {
       foto: '/assets/images/bola_1.webp',
@@ -51,7 +50,6 @@ export class HomePageComponent {
 
   buscar() {
     // Agora você pode acessar o searchTerm diretamente
-    console.log('Buscando por:', this.searchTerm);
     // Implemente sua lógica de pesquisa aqui
   }
 }

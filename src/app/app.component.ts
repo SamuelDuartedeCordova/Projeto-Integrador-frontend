@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
 import {UsuarioService} from "./shared/services/usuario.service";
+import {timer} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -13,10 +14,14 @@ import {UsuarioService} from "./shared/services/usuario.service";
 export class AppComponent implements OnInit {
   title = 'Projeto-Integrador-frontend';
 
-  constructor(private usuarioService: UsuarioService) {
+  constructor(private router: Router, private usuarioService: UsuarioService) {
   }
 
   ngOnInit() {
-    this.usuarioService.atualizarSessao();
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.usuarioService.atualizarSessao();
+      }
+    });
   }
 }
