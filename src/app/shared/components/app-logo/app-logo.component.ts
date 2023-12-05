@@ -14,6 +14,6 @@ export class AppLogoComponent {
   }
 
   redirectToStart(): void {
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 }

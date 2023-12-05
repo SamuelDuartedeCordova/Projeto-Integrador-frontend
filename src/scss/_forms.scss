@@ -27,4 +27,12 @@
     background-color: $light-gray;
     opacity: 0.65;
   }
+
+  &.small {
+    padding: 12px 24px;
+  }
+
+  &.rounded {
+    border-radius: 16px;
+  }
 }
