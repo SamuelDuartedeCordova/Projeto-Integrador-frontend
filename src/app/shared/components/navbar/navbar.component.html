@@ -1,8 +1,7 @@
 <div class="flex-row p-8 bg-primary mb-40 align-center justify-space-between">
-  <div class="flex-row align-center gap-128 w-50">
+  <div class="flex-row align-center logo-search-wrap gap-128">
     <app-app-logo></app-app-logo>
     <app-search-input
-      class="flex grow"
       *ngIf="!deveMostrarSomenteLogo"
       (searchValueChanged)="onSearchValueChanged($event)">
     </app-search-input>
