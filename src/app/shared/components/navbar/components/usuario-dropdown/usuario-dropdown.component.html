@@ -1,0 +1,11 @@
+<div
+  class="flex-row gap-8 text-white align-center cursor-pointer"
+  (click)="menuAberto = true">
+  <i class="fa fa-user-circle"></i>
+  <span>Olá, {{usuario?.nome}}</span>
+  <i class="fa fa-angle-down"></i>
+</div>
+
+<div [class.show]="menuAberto" class="dropdown-content">
+  <span class="cursor-pointer" (click)="logout()">Logout</span>
+</div>

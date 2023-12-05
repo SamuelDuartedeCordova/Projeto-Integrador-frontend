@@ -12,8 +12,16 @@
   flex-direction: column;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .justify-center {
   justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
 }
 
 .align-center {
@@ -32,8 +40,16 @@
   gap: 24px;
 }
 
+.gap-32 {
+  gap: 32px
+}
+
 .gap-48 {
   gap: 48px
+}
+
+.gap-128 {
+  gap: 128px;
 }
 
 .border-rounded {

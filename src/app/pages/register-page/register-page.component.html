@@ -1,47 +1,46 @@
-<img src="assets/images/logo.png"/>
-<div class="flex-column align-center justify-center">
-  <div class="login-card w-50 flex bg-primary border-rounded justify-center align-center pt-80 pb-128">
-    <form [formGroup]="loginForm" class="login-form w-30 flex-column justify-center align-center">
-      <h1 class="text-white pb-72">Criar conta</h1>
+<app-navbar></app-navbar>
+<div class="flex-column align-center justify-center pb-24">
+  <form [formGroup]="registroForm" class="login-form w-30 flex-column">
+    <h2 class="text-primary pb-48">Criar conta</h2>
 
-      <div class="flex-column gap-48 mb-24 w-full">
-
-        <div class="flex-column gap-8">
-          <p class="text-white">Nome</p>
-          <div class="form-input-wrap">
-            <input formControlName="nome" type="nome" class="form-control">
-          </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('nome')?.errors"/>
+    <div class="flex-column gap-24 w-full">
+      <div class="flex-column gap-8">
+        <p class="text-charcoal">Nome</p>
+        <div class="form-input-wrap">
+          <input formControlName="nome" type="nome" class="form-control">
         </div>
-
-        <div class="flex-column gap-8">
-          <p class="text-white">Sobrenome</p>
-          <div class="form-input-wrap">
-            <input formControlName="email" type="email" class="form-control">
-          </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('sobrenome')?.errors"/>
-        </div>
-
-        <div class="flex-column gap-8">
-          <p class="text-white">Email</p>
-          <div class="form-input-wrap">
-            <input formControlName="email" type="email" class="form-control">
-          </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('email')?.errors"/>
-        </div>
-
-        <div class="flex-column gap-8">
-          <p class="text-white">Senha</p>
-          <app-input-senha [control]="senhaFormControl"></app-input-senha>
-          <app-form-error [errors]="loginForm.get('senha')?.errors"/>
-        </div>
+        <app-form-error [deveMostrar]="registroForm.touched" [errors]="registroForm.get('nome')?.errors"/>
       </div>
 
-      <div class="flex-column gap-8 align-center">
-        <button class="button-secondary" (click)="criarConta()">
-          Criar conta
-        </button>
+      <div class="flex-column gap-8">
+        <p class="text-charcoal">Sobrenome</p>
+        <div class="form-input-wrap">
+          <input formControlName="sobrenome" type="sobrenome" class="form-control">
+        </div>
+        <app-form-error [deveMostrar]="registroForm.touched" [errors]="registroForm.get('sobrenome')?.errors"/>
       </div>
-    </form>
-  </div>
+
+
+      <div class="flex-column gap-8">
+        <p class="text-charcoal">Email</p>
+        <div class="form-input-wrap">
+          <input formControlName="email" type="email" class="form-control">
+        </div>
+        <app-form-error [deveMostrar]="registroForm.touched" [errors]="registroForm.get('email')?.errors"/>
+      </div>
+
+      <div class="flex-column gap-8">
+        <p class="text-charcoal">Senha</p>
+        <app-input-senha [control]="senhaFormControl"></app-input-senha>
+        <app-form-error [errors]="registroForm.get('senha')?.errors"/>
+      </div>
+    </div>
+
+    <button class="button-secondary block mt-8" (click)="criarConta()">
+      <span *ngIf="processando; else mostrarLabel">
+        <app-spinner-icon></app-spinner-icon>
+      </span>
+      <ng-template #mostrarLabel>Criar conta</ng-template>
+    </button>
+  </form>
 </div>

@@ -1,31 +1,48 @@
-<img src="assets/images/logo.png"/>
-<div class="flex-column align-center justify-center">
-  <div class="login-card w-50 flex bg-primary border-rounded justify-center align-center pt-80 pb-128">
-    <form [formGroup]="loginForm" class="login-form w-30 flex-column justify-center align-center">
-      <h1 class="text-white pb-72">Login</h1>
+<app-navbar></app-navbar>
+<div class="flex-row justify-center">
+  <form [formGroup]="loginForm" class="w-30 flex-column">
+    <h2 class="text-primary mb-8">Já sou cliente</h2>
 
-      <div class="flex-column gap-48 mb-24 w-full">
-        <div class="flex-column gap-8">
-          <p class="text-white">Email</p>
-          <div class="form-input-wrap">
-            <input formControlName="email" type="email" class="form-control">
-          </div>
-          <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('email')?.errors"/>
+    <div class="flex-column gap-24 mb-24 w-full">
+      <div class="flex-column gap-8">
+        <p class="text-charcoal">Email</p>
+        <div class="form-input-wrap">
+          <input formControlName="email" type="email" class="form-control" placeholder="E-mail">
         </div>
-
-        <div class="flex-column gap-8">
-          <p class="text-white">Senha</p>
-          <app-input-senha [control]="senhaFormControl"></app-input-senha>
-          <app-form-error [errors]="loginForm.get('senha')?.errors"/>
-        </div>
+        <app-form-error [deveMostrar]="loginForm.touched" [errors]="loginForm.get('email')?.errors"/>
       </div>
 
-      <div class="flex-column gap-8 align-center">
-        <p class="text-white text-underline cursor-pointer">Esqueci minha senha</p>
-        <button class="button-secondary" (click)="login()">
-          Acessar conta
-        </button>
+      <div class="flex-column gap-8">
+        <p class="text-charcoal">Senha</p>
+        <app-input-senha [control]="senhaFormControl"></app-input-senha>
+        <app-form-error [deveMostrar]="loginForm.touched"  [errors]="loginForm.get('senha')?.errors"/>
       </div>
-    </form>
-  </div>
+    </div>
+
+    <div class="flex-column gap-24">
+      <p class="text-charcoal text-underline cursor-pointer">Esqueci minha senha</p>
+      <button [disabled]="loginForm.invalid" class="button-secondary block" (click)="login()">
+        <span *ngIf="processando; else mostrarLabel">
+        <app-spinner-icon></app-spinner-icon>
+      </span>
+        <ng-template #mostrarLabel>Acessar conta</ng-template>
+      </button>
+    </div>
+  </form>
+  <app-login-divider></app-login-divider>
+  <form [formGroup]="criarContaForm" class="w-30 flex-column">
+    <h2 class="text-primary mb-8">Criar conta</h2>
+
+    <div class="flex-column gap-8">
+      <p class="text-charcoal">Email</p>
+      <div class="form-input-wrap">
+        <input formControlName="email" type="email" class="form-control" placeholder="E-mail">
+      </div>
+      <app-form-error [deveMostrar]="criarContaForm.touched" [errors]="criarContaForm.get('email')?.errors"/>
+    </div>
+
+    <button [disabled]="criarContaForm.invalid" class="button-secondary block mt-8" (click)="criarConta()">
+      Criar Conta
+    </button>
+  </form>
 </div>

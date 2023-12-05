@@ -1,13 +1,14 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { AddressPageComponent } from './pages/address-page/address-page.component';
+import {RegisterPageComponent} from './pages/register-page/register-page.component';
+import {HomePageComponent} from './pages/home-page/home-page.component';
+import {CartPageComponent} from "./pages/cart-page/cart-page.component";
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login',
+    redirectTo: 'home',
   },
   {
     path: 'login',
@@ -18,7 +19,11 @@ export const routes: Routes = [
     component: RegisterPageComponent
   },
   {
-    path: 'address',
-    component: AddressPageComponent
+    path: 'home',
+    component: HomePageComponent
+  },
+  {
+    path: 'cart',
+    component: CartPageComponent
   }
 ];

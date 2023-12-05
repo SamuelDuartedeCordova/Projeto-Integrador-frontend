@@ -14,12 +14,18 @@
     font-weight: 700;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-    &-block {
+    &.block {
       width: 100%;
     }
 
     &:not(:disabled) {
       cursor: pointer;
+    }
+
+    &:disabled {
+      background-color: $light-gray;
+      color: $charcoal;
+      cursor: not-allowed;
     }
 
     &:focus,

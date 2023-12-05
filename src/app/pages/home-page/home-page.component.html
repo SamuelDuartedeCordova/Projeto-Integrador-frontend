@@ -1,0 +1,16 @@
+<div class="home-wrap">
+  <app-navbar></app-navbar>
+  <app-category-bar></app-category-bar>
+  <div class="pr-32 pl-32 pt-16 pb-24">
+    <div class="flex-column gap-48">
+      <h1 class="text-charcoal">Mais vendidos</h1>
+
+      <div class="flex-row gap-32 product-list">
+        <app-produto-card-item
+          *ngFor="let produto of produtosFiltrados"
+          [produto]="produto">
+        </app-produto-card-item>
+      </div>
+    </div>
+  </div>
+</div>

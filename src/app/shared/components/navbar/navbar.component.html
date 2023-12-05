@@ -1,0 +1,20 @@
+<div class="flex-row p-8 bg-primary mb-40 align-center justify-space-between">
+  <div class="flex-row align-center logo-search-wrap gap-128">
+    <app-app-logo></app-app-logo>
+    <app-search-input
+      *ngIf="!deveMostrarSomenteLogo"
+      (searchValueChanged)="onSearchValueChanged($event)">
+    </app-search-input>
+  </div>
+
+  <div *ngIf="!deveMostrarSomenteLogo" class="flex-row mr-24">
+    <div class="flex-row gap-24 align-center">
+      <app-login-dropdown *ngIf="!temUsuarioLogado"></app-login-dropdown>
+      <app-usuario-dropdown *ngIf="temUsuarioLogado" [usuario]="usuario"></app-usuario-dropdown>
+      <div class="cursor-pointer p-8 text-white text-large" (click)="redirecionarParaCarrinho()">
+        <i class="fa fa-shopping-cart"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
