@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { FormErrorComponent } from '../../shared/form-error/form-error.component';
-import { InputSenhaComponent } from '../../shared/input-senha/input-senha.component';
+import { FormErrorComponent } from '../../shared/components/form-error/form-error.component';
+import { InputSenhaComponent } from '../../shared/components/input-senha/input-senha.component';
 
 @Component({
   selector: 'app-address-page',
