@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NavigationEnd, Router, RouterOutlet} from '@angular/router';
-import {UsuarioService} from "./shared/services/usuario.service";
+import {UsuarioService} from "./shared/services/usuario/usuario.service";
 import {timer} from "rxjs";
 
 @Component({

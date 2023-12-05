@@ -5,7 +5,7 @@ import {FormErrorComponent} from "../../shared/components/form-error/form-error.
 import {AppLogoComponent} from "../../shared/components/app-logo/app-logo.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NavbarComponent} from "../../shared/components/navbar/navbar.component";
-import {UsuarioService} from "../../shared/services/usuario.service";
+import {UsuarioService} from "../../shared/services/usuario/usuario.service";
 import {SpinnerIconComponent} from "../../shared/components/spinner-icon/spinner-icon.component";
 import {finalize} from "rxjs";
 import {NgIf} from "@angular/common";

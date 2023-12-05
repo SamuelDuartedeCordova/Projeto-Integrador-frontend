@@ -5,9 +5,9 @@
     <div class="flex-column gap-48">
       <h1 class="text-charcoal">Mais vendidos</h1>
 
-      <div class="flex-row gap-32 w-full grow justify-space-between">
+      <div class="flex-row gap-32 w-full grow">
         <app-produto-card-item
-          *ngFor="let produto of produtos"
+          *ngFor="let produto of produtosFiltrados"
           [produto]="produto">
         </app-produto-card-item>
       </div>

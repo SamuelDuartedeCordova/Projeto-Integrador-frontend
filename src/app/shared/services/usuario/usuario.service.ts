@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of, switchMap, timer} from "rxjs";
-import Usuario from "../models/usuario.model";
+import Usuario from "../../models/usuario.model";
 
 @Injectable({
   providedIn: 'root'
