@@ -1,19 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import Login from '../../../models/login.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  private baseUrl = 'http://localhost:8080/api/auth'; // Substitua pelo URL do seu endpoint de autenticação
+export class ClienteService {
 
-  constructor(private http: HttpClient) { }
-
-  login(username: string, password: string): Observable<any> {
-    const credentials = { username: username, password: password };
-    return this.http.post(`${this.baseUrl}/login`, credentials);
+  private http: HttpClient = inject (HttpClient);
+  public get(): Observable<Login[]> {
+    return this.http.get<Login[]>(`https/localhost:5432/login`);
   }
-
-  // Adicione métodos para logout, verificar status de autenticação, etc.
 }
