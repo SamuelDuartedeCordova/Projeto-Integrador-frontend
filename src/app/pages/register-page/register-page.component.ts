@@ -9,10 +9,18 @@ import {UsuarioService} from "../../shared/services/usuario/usuario.service";
 import {SpinnerIconComponent} from "../../shared/components/spinner-icon/spinner-icon.component";
 import {finalize} from "rxjs";
 import {NgIf} from "@angular/common";
-import { RegisterService } from '../../shared/services/api/register/registrar.service';
+import {RegisterService } from '../../shared/services/api/register/registrar.service';
 
 @Component({
   selector: 'app-register-page',
+  standalone: true,
+  imports: [
+    InputSenhaComponent,
+    FormErrorComponent,
+    SpinnerIconComponent,
+    NavbarComponent,
+    NgIf
+  ],
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.scss']
 })

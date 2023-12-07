@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="flex-column align-center justify-center pb-24">
-  <form [formGroup]="registroForm" class="login-form w-30 flex-column">
+  <form formGroup="registroForm" class="login-form w-30 flex-column">
     <h2 class="text-primary pb-48">Criar conta</h2>
 
     <div class="flex-column gap-24 w-full">
@@ -31,7 +31,7 @@
 
       <div class="flex-column gap-8">
         <p class="text-charcoal">Senha</p>
-        <app-input-senha [control]="senhaFormControl"></app-input-senha>
+        <app-input-senha [control="senhaFormControl"></app-input-senha>
         <app-form-error [errors]="registroForm.get('senha')?.errors"/>
       </div>
     </div>

@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {AppLogoComponent} from "../../shared/components/app-logo/app-logo.component";
 import {NavbarComponent} from "../../shared/components/navbar/navbar.component";
 import {LoginDividerComponent} from "./components/login-divider/login-divider.component";
-import {UsuarioService} from "../../shared/services/usuario/usuario.service";
+import { NgIf } from '@angular/common';
 import {finalize} from "rxjs";
 import {SpinnerIconComponent} from "../../shared/components/spinner-icon/spinner-icon.component";
 import { LoginService } from '../../shared/services/api/login/login.service';
@@ -20,7 +20,8 @@ import { LoginService } from '../../shared/services/api/login/login.service';
     AppLogoComponent,
     NavbarComponent,
     LoginDividerComponent,
-    SpinnerIconComponent
+    SpinnerIconComponent,
+    NgIf
   ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
