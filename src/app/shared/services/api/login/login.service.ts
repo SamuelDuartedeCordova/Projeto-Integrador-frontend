@@ -1,15 +1,20 @@
+// auth.service.ts
+
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import Login from '../../../models/login.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ClienteService {
+export class LoginService {
+  private apiUrl = 'http://localhost:5432/pro_fut';
 
-  private http: HttpClient = inject (HttpClient);
-  public get(): Observable<Login[]> {
-    return this.http.get<Login[]>(`https/localhost:5432/login`);
+  constructor(private http: HttpClient) {}
+
+  login(email: string, senha: string ): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, { email, senha });
   }
+
+  // Pode adicionar métodos para logout, verificar autenticação, etc.
 }

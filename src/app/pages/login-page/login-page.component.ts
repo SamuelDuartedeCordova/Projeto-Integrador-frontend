@@ -1,38 +1,35 @@
 import {Component, OnInit} from '@angular/core';
 import {InputSenhaComponent} from "../../shared/components/input-senha/input-senha.component";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FormErrorComponent} from "../../shared/components/form-error/form-error.component";
-import {Router, RouterModule} from "@angular/router";
+import {Router} from "@angular/router";
 import {AppLogoComponent} from "../../shared/components/app-logo/app-logo.component";
 import {NavbarComponent} from "../../shared/components/navbar/navbar.component";
 import {LoginDividerComponent} from "./components/login-divider/login-divider.component";
 import {UsuarioService} from "../../shared/services/usuario/usuario.service";
 import {finalize} from "rxjs";
-import {NgIf} from "@angular/common";
 import {SpinnerIconComponent} from "../../shared/components/spinner-icon/spinner-icon.component";
+import { LoginService } from '../../shared/services/api/login/login.service';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
   imports: [
     InputSenhaComponent,
-    ReactiveFormsModule,
     FormErrorComponent,
-    RouterModule,
     AppLogoComponent,
     NavbarComponent,
     LoginDividerComponent,
-    NgIf,
     SpinnerIconComponent
   ],
   templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.scss'
+  styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
 
   processando: boolean = false;
 
-  constructor(private router: Router, private usuarioService: UsuarioService) {
+  constructor(private router: Router, private loginService: LoginService) {
   }
 
   loginForm = new FormGroup({
@@ -56,7 +53,7 @@ export class LoginPageComponent implements OnInit {
 
     if (this.loginForm.valid) {
       this.processando = true;
-      this.usuarioService.login(
+      this.loginService.login(
         this.loginForm.get('email')?.value as string,
         this.loginForm.get('senha')?.value as string
       )

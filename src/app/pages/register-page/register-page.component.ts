@@ -9,25 +9,17 @@ import {UsuarioService} from "../../shared/services/usuario/usuario.service";
 import {SpinnerIconComponent} from "../../shared/components/spinner-icon/spinner-icon.component";
 import {finalize} from "rxjs";
 import {NgIf} from "@angular/common";
+import { RegisterService } from '../../shared/services/api/register/registrar.service';
 
 @Component({
   selector: 'app-register-page',
-  standalone: true,
-  imports: [
-    InputSenhaComponent,
-    ReactiveFormsModule,
-    FormErrorComponent,
-    AppLogoComponent,
-    NavbarComponent,
-    SpinnerIconComponent,
-    NgIf,
-  ],
   templateUrl: './register-page.component.html',
-  styleUrl: './register-page.component.scss'
+  styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent implements OnInit {
 
   processando: boolean = false;
+  erroNoRegistro: string | undefined;
 
   registroForm = new FormGroup({
     nome: new FormControl('', [Validators.required]),
@@ -36,16 +28,14 @@ export class RegisterPageComponent implements OnInit {
     senha: new FormControl('', [Validators.required]),
   });
 
-  senhaFormControl: FormControl = undefined as any;
+  senhaFormControl: FormControl | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private usuarioService: UsuarioService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private registerService: RegisterService) {
   }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
-      if (params['email']) {
-        this.registroForm.get('email')?.setValue(params['email']);
-      }
+      this.registroForm.get('email')?.setValue(params['email']);
     });
 
     this.senhaFormControl = this.registroForm.get('senha') as FormControl;
@@ -53,23 +43,31 @@ export class RegisterPageComponent implements OnInit {
 
   criarConta(): void {
     this.registroForm.markAllAsTouched();
+    this.erroNoRegistro = undefined; // Limpa mensagens de erro anteriores
 
     if (this.registroForm.valid) {
       this.processando = true;
 
-      this.usuarioService.cadastrar({
-        nome: this.registroForm.get('nome')?.value as string,
-        sobrenome: this.registroForm.get('sobrenome')?.value as string,
-        email: this.registroForm.get('email')?.value as string,
-        senha: this.registroForm.get('senha')?.value as string,
-      })
-        .pipe(
-          finalize(() => this.processando = false)
-        )
-        .subscribe(response => {
-        window.alert('Conta criada com sucesso');
-        this.router.navigate(['home']);
-      });
+      this.registerService.cadastrar(
+        this.registroForm.get('nome')?.value as string,
+        this.registroForm.get('sobrenome')?.value as string,
+        this.registroForm.get('email')?.value as string,
+        this.registroForm.get('senha')?.value as string
+      )
+      .pipe(
+        finalize(() => this.processando = false)
+      )
+      .subscribe(
+        response => {
+          window.alert('Conta criada com sucesso');
+          this.router.navigate(['home']);
+        },
+        error => {
+          this.erroNoRegistro = 'Erro durante o registro. Tente novamente.'; // Mensagem de erro genérica
+          console.error('Erro durante o registro:', error);
+        }
+      );
     }
   }
 }
+
